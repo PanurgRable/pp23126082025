@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Show</title>
+    <title>Пользователь</title>
 </head>
 <body>
-<p th:text="${user.getName() + ', ' + user.getAge()}">VALUE</p>
-<p th:text="${'Email: ' + user.getEmail()}">VALUE</p>
-<p th:text="${user.getId()}">VALUE</p>
+<h2>Информация о пользователе</h2>
 
-<a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit</a>
+<p><b>ID:</b> <span th:text="${user.id}"></span></p>
+<p><b>Имя:</b> <span th:text="${user.name}"></span></p>
+<p><b>Email:</b> <span th:text="${user.email}"></span></p>
 
-<form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
-    <input type="submit" value="Delete"/>
-</form>
+<br/>
+<a th:href="@{/users}">Назад к списку</a>
+
 </body>
 </html>

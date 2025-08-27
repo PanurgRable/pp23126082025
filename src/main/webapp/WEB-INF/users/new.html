@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>New person</title>
+    <title>Новый пользователь</title>
 </head>
 <body>
+<h2>Создание пользователя</h2>
 
-<form th:method="POST" th:action="@{/users}" th:object="${user}">
-    <label for="name">Enter name: </label>
-    <input type="text" th:field="*{name}" id="name"/>
-    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+<form th:action="@{/users}" th:object="${user}" method="post">
+    <label>Имя:</label>
+    <input type="text" th:field="*{name}" />
     <br/>
-    <label for="age">Enter age: </label>
-    <input type="text" th:field="*{age}" id="age"/>
-    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
+
+    <label>Email:</label>
+    <input type="email" th:field="*{email}" />
     <br/>
-    <label for="email">Enter email: </label>
-    <input type="text" th:field="*{email}" id="email"/>
-    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
-    <br/>
-    <input type="submit" value="Create!"/>
+
+    <button type="submit">Сохранить</button>
 </form>
+
+<br/>
+<a th:href="@{/users}">Назад к списку</a>
 
 </body>
 </html>
